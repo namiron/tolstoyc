@@ -1,0 +1,48 @@
+@import "../../common/variables.scss";
+//--------------------------------------
+
+.content {
+  @include adaptive-value("padding-top", 50, 25, 1440);
+  @include adaptive-value("padding-bottom", 50, 25, 1440);
+}
+.container {
+  @extend %container;
+  display: flex;
+  align-items: baseline;
+  @include adaptive-value("gap", 30, 15, 1440);
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+.card {
+  @include adaptive-value("padding-bottom", 10, 5, 1440);
+  @extend %displayFlexDirection;
+  align-items: center;
+  @include adaptive-value("gap", 10, 5, 1440);
+  border-radius: 10px;
+  background: #fff;
+  max-width: 300px;
+}
+.image {
+  max-width: 300px;
+  @extend %images;
+}
+.title {
+  @include adaptive-value("padding-left", 5, 3, 1440);
+  @include adaptive-value("padding-right",5, 3, 1440);
+  font-weight: 600;
+}
+.description {
+  line-height: 1.1;
+  @include adaptive-value("padding-left", 5, 3, 1440);
+  @include adaptive-value("padding-right",5, 3, 1440);
+}
+.link {
+  width: 90%;
+  text-align: center;
+  @include adaptive-value("padding", 10, 5, 1440);
+  @extend %Tolstoy;
+  border-radius: 10px;
+  color: #fff;
+}

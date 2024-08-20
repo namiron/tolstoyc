@@ -1,0 +1,19 @@
+@import "../../common/variables.scss";
+//--------------------------------------
+
+//------------------------------------vars
+$bg: #f8f7f3;
+//------------------------------------vars
+
+.wrapper {
+  background: $bg;
+  @extend %wrapper;
+}
+.header{}
+
+.main {
+  @include adaptive-value('padding-top', 50, 25,1440);
+  width: 100%;
+  @extend %displayCenter;
+  flex-direction: column;
+}

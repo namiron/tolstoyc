@@ -1,0 +1,75 @@
+@import "../../common/variables.scss";
+//--------------------------------------
+
+//--------------------------------------var
+$bg: #3d4fe0;
+$bjc: #f8f7f3;
+//--------------------------------------var
+
+.fields {
+  @include adaptive-value("width", 400, 100, 1440);
+  @include adaptive-value("padding", 20, 10, 1440);
+  background: #fff;
+  border-radius: 10px;
+  @extend %displayFlexDirection;
+  @include adaptive-value("gap", 20, 10, 1440);
+}
+
+.title {
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.box {
+  @extend %displayFlexDirection;
+  @include adaptive-value("gap", 10, 5, 1440);
+}
+
+.textInput {
+  font-weight: 500;
+}
+.star {
+  color: red;
+}
+
+.urlFirst {
+  border: 1px solid #f8f7f3;
+  @include adaptive-value("padding", 10, 5, 1440);
+  border: 1px solid #000;
+  background-color: #f8f7f3;
+  border-radius: 10px;
+  input {
+    background-color: #f8f7f3;
+  }
+}
+.urlSecond {
+  @include adaptive-value("padding", 10, 5, 1440);
+  background-color: #f8f7f3;
+  border: 1px solid #000;
+  border-radius: 10px;
+  input {
+    background-color: #f8f7f3;
+  }
+}
+.thirdUrl {
+  @include adaptive-value("padding", 10, 5, 1440);
+  background-color: #f8f7f3;
+  border: 1px solid #000;
+  border-radius: 10px;
+  input {
+    background-color: #f8f7f3;
+  }
+}
+.buttonSubmit {
+  @include adaptive-value("padding", 10, 5, 1440);
+  @extend %Tolstoy;
+  border-radius: 10px;
+  color: #fff;
+}
+.errorText{
+     color:red;
+}
+
+.formError {
+    color:red; 
+}
