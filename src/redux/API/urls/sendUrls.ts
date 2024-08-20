@@ -13,6 +13,10 @@ export const sendUrls = createAsyncThunk<
   "urls/sendUrls",
   async ({ urlFirst, urlSecond, urlThird }, { dispatch, rejectWithValue }) => {
     try {
+      const csrfToken =
+        document
+          .querySelector('meta[name="csrf-token"]')
+          ?.getAttribute("content") || "";
       const response = await axios.post(
         `${baseUrl}/urls/fetch-metadata`,
         {
@@ -25,6 +29,7 @@ export const sendUrls = createAsyncThunk<
         {
           headers: {
             "Content-Type": "application/json",
+            "X-CSRF-Token": csrfToken,
           },
         }
       );
