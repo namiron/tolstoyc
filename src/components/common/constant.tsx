@@ -1,6 +1,6 @@
 type ConstantType = string | number;
 
-export const baseUrl = `http://localhost:5000`;
+export const baseUrl = `https://tolstoys.vercel.app/`;
 
 export const ERRORS_NAME: ConstantType = `This field must be filled`;
 
