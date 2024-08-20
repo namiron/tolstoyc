@@ -5,7 +5,7 @@ import {
   INPUT_SECOND,
   INPUT_THIRD,
   SUBMIT,
-  MY_WORK,
+  TOLSTOY,
   URL_ERRORS,
 } from "../common/constant";
 import { IUrls } from "../../redux/types/IUrlsProps";
@@ -39,7 +39,7 @@ const Form: React.FC = () => {
   return (
     <form onSubmit={handleSubmit(handleUrls)}>
       <div className={styles.fields}>
-        <h1 className={styles.title}>{MY_WORK}</h1>
+        <h1 className={styles.title}>{TOLSTOY}</h1>
 
         <div className={styles.box}>
           <p className={styles.textInput}>
