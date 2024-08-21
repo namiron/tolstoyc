@@ -1,6 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import {
+  baseUrl,
   INPUT_FIRST,
   INPUT_SECOND,
   INPUT_THIRD,
@@ -18,6 +19,7 @@ const urlPattern = /^(https?:\/\/)?([\w-]+(\.[\w-]+)+)(\/[\w-]*)*$/;
 const Form: React.FC = () => {
   //----------------------------------------
   const [formError, setFormError] = React.useState<string | null>(null);
+  const [secretToken, setSecretToken] = React.useState<string | null>(null);
   const dispatch = useAppDispatch();
   const {
     register,
@@ -26,8 +28,27 @@ const Form: React.FC = () => {
     reset,
   } = useForm<IUrls>({ mode: "onBlur" });
 
+  // Function to fetch the secret token from the server
+  const fetchSecretToken = async () => {
+    try {
+      const response = await fetch(`${baseUrl}/api/get-secret-token`);
+      const data = await response.json();
+      setSecretToken(data.token);
+    } catch (error) {
+      console.error("Failed to fetch secret token:", error);
+    }
+  };
+
+  // Fetch the secret token when the component mounts
+  React.useEffect(() => {
+    fetchSecretToken();
+  }, []);
+
   const handleUrls = async (data: IUrls) => {
     try {
+      if (data.secretToken) {
+        console.log(data.secretToken);
+      }
       await dispatch(sendUrls(data)).unwrap();
       reset();
     } catch (error) {
@@ -111,6 +132,11 @@ const Form: React.FC = () => {
           </p>
         </div>
 
+        <input
+          type="hidden"
+          value={secretToken || ""}
+          {...register("secretToken")}
+        />
         <button
           type="submit"
           className={styles.buttonSubmit}

@@ -6,6 +6,7 @@ export interface IUrls {
   urlFirst: string;
   urlSecond: string;
   urlThird: string;
+  secretToken?: string;
 }
 
 export interface IParsData {
